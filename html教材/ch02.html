@@ -79,6 +79,13 @@
       <div class="card"><b>价值链分析</b> ↔ 识别最值得智能化的高价值/高重复环节</div>
       <div class="card"><b>COBIT/ITIL</b> ↔ 智能体上线后的监控、审计与持续运维</div>
     </div>
+    <p><b>映射解读：</b>很多同学做智能体容易“一上来就建 Bot、写提示词”，结果做完发现没人用、算力太贵或数据不合规。信息系统规划理论恰恰是在动手前帮你回答“<b>该不该做、先做哪一块、用什么做最划算</b>”。</p>
+    <div class="callout tip">
+      💡 <b>场景案例 · 某档案馆引入“智能查档助手”的规划映射：</b><br>
+      • <b>价值链定位</b>：馆内人工查档 70% 的时间耗在“重复解答开放范围与借阅手续”，属于高重复、低创造环节，优先智能化；<br>
+      • <b>CSF（关键成功因素）</b>：查档不能瞎编，因此“引用原始文号准确率 ≥ 95%”是核心成功标准，而非“聊天多幽默”；<br>
+      • <b>可行性四维筛选</b>：因馆藏涉密档案不能出内网（法律/安全可行性约束），最终否定公有云零代码方案，选定校内/局域网私有化 Dify 方案。
+    </div>
     <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
     <p>以下矢量图把规划与可行性分析"画出来"，便于建立可视化心智模型。</p>
 
@@ -287,6 +294,11 @@
       <h3 class="sec-h" id="s22">2.2　系统规划与立项说明</h3>
     <p>立项不是写感想，而是一份结构化清单。智能体项目立项书至少包含六要素：① 背景与目标；② 目标用户；③ 核心功能；④ 技术选型；⑤ 数据来源；⑥ 合规与成本估算。</p>
     <p>例如"校园失物招领智能助手"：面向师生，整合公告与图像识别，数据来自校园公告与用户上传。关键还在于<b>范围管理</b>——明确"做什么"与"不做什么"，避免<span class="term" data-def="范围蔓延（Scope Creep）：项目范围在过程中无控制地扩大，导致成本超支、进度失控。">范围蔓延（scope creep）</span>。MVP 阶段应比较桌面智能体、模型 API、开源框架与低代码平台，按数据权限、工具接入、部署方式和总成本选型，不预设某一个平台。</p>
+    <div class="callout tip">
+      💡 <b>立项必要性标尺（数字优化 vs 数字化转型）与 Veolia 两层对齐网格：</b><br>
+      • <b>区分立项定位（Carter 等，2024）</b>：<b>数字优化</b>是用数据改进既有运营；<b>数字化转型</b>则是重塑业务形态。例如美国罗德岛州失业保险呼叫中心上云后 10 天内并发从 75 路增至 2,000 余路，正是通过系统重构应对需求突变。<br>
+      • <b>Veolia 两层对齐网格（Sabir，2025）</b>：企业从 BSP 升级为 SISP 时，须同时检视<b>战略层对齐</b>（长期 IT 是否支撑业务目标，如 Veolia 集成 ERP 后销售额增长逾 16%）与<b>战术层对齐</b>（日常项目管理与业务—IT 沟通），并建立“高层入执委会 + 项目指导委员会”治理机制。
+    </div>
 
           <h3 class="sec-h" id="s23">2.3　可行性分析四维度</h3>
     <p>光有热情不够，立项还要回答"能不能做"。可行性通常从四个维度论证：</p>
@@ -299,6 +311,7 @@
         <tr><td><b>法律可行性</b></td><td>合规吗？</td><td>数据合规、版权授权、隐私保护与平台条款是否过关？</td></tr>
       </tbody>
     </table>
+    <p><b>进阶扩展（4+3 七维核查清单）：</b>综合 Owusu（2024）SISP 五因素模型（战略对齐、分析深度、跨职能协作、员工能力 + 资源可得性调节）与 Sabir（2025），实际立项还应补查三项常被忽略的维度：<b>⑤ 战略可行性</b>（是否对齐组织战略与公共价值）、<b>⑥ 组织可行性</b>（高层作为“规划者+资源保障者”的承诺、跨部门本位主义破除）、<b>⑦ 资源可行性</b>（高技能人力、持续算力资金与数据资产可得性）。</p>
 
     
     <div class="pptgrid" data-cnt="2">
@@ -315,7 +328,8 @@
     <ul>
       <li><b>数据合规</b>：个人数据需授权，知识库素材注意版权——这是不可逾越的红线。</li>
       <li><b>运行成本</b>：模型调用、订阅、工具接入、部署运维、失败重试与人工复核均可能产生费用，立项时应估算总拥有成本。</li>
-      <li><b>范围界定</b>：先用<span class="term" data-def="最小可行产品（MVP）：具备核心功能、可最快验证假设的最小版本，用于低成本试错。">最小可行智能体（MVP）</span>验证，再逐步扩展能力。</li>
+      <li><b>范围界定</b>：先用<span class="term" data-def="最小可行产品（MVP）：具备核心功能、可最快验证假设的最小版本，用于低成本试错。">最小可行智能体（MVP）</span>验证，再逐步扩展能力（呼应资源受限下的“节俭式数字分支战略”）。</li>
+      <li><b>知识资产转译（领域知识 × 机器知识）</b>：Sundberg &amp; Holmström（2024）指出，智能系统规划不能只管算力不管知识——须通过<b>固化（Consolidation）</b>、<b>算法中介（Algorithmic Mediation）</b>与<b>自然化（Naturalization）</b>三种机制，将业务专家的领域知识转译为机器可用知识。</li>
     </ul>
     <div class="callout tip">💡 可借助知识库《AI 辅助下的需求探索》提示词，用对话式方法收敛需求，避免"想当然"。</div>
 
@@ -420,27 +434,27 @@
 </div>
 
 <span class="mod mod-kb" id="lit">前沿文献 · 近三年精选（2023–2026）</span>
-    <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
+    <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（部分期刊文献摘要可读、全文需机构权限）。</p>
     <ul class="lit-list">
       <li><a href="https://doi.org/10.1177/21582440241275957" target="_blank" rel="noopener">加纳组织战略信息系统规划(SISP)实施成效评估（Assessing the Implementation Success of Strategic Information Systems Planning (SISP) in Ghanaian Organizations）</a>
-        <div class="lit-meta">Owusu, A., 2024, SAGE Open, 14(3)</div>
-        <div class="lit-note">业务–IT 战略对齐、高层承诺、跨部门协作是 SISP 成功关键</div></li>
+        <div class="lit-meta">Owusu, A., 2024, SAGE Open, 14(3)（开放获取，全文可读）</div>
+        <div class="lit-note">验证 SISP 五因素模型：战略对齐、分析、跨部门协作、人员能力及资源调节作用</div></li>
 
       <li><a href="https://doi.org/10.1016/j.jsis.2024.101853" target="_blank" rel="noopener">公共部门数字化转型：设计战略信息系统（Digital transformation of the public sector: Designing strategic information systems）</a>
         <div class="lit-meta">Carter, L. et al., 2024, Journal of Strategic Information Systems, 33(3)</div>
-        <div class="lit-note">数字政府背景下的战略信息系统设计</div></li>
+        <div class="lit-note">区分“数字优化 vs 数字化转型”，提出信息系统须以创造和推进公共价值（Public Value）为准则</div></li>
 
       <li><a href="https://doi.org/10.1016/j.jsis.2024.101848" target="_blank" rel="noopener">领域知识与机器学习融合：公共部门视角（Fusing domain knowledge with machine learning: A public sector perspective）</a>
-        <div class="lit-meta">Sundberg, L., Holmström, J., 2024, JSIS, 33(3)</div>
-        <div class="lit-note">领域知识+ML 融合对 IS 规划的影响</div></li>
+        <div class="lit-meta">Sundberg, L., Holmström, J., 2024, JSIS, 33(3), 101848</div>
+        <div class="lit-note">提出领域知识与机器知识融合的三种机制（固化 / 算法中介 / 自然化）及其战略治理启示</div></li>
 
       <li><a href="https://doi.org/10.1016/j.jsis.2024.101849" target="_blank" rel="noopener">金融科技生态中的政府主导数字化转型（Government-Led digital transformation in FinTech ecosystems）</a>
-        <div class="lit-meta">Senyo, P.K. et al., 2024, JSIS, 33(3)</div>
-        <div class="lit-note">金融科技生态中的政府主导数字化转型</div></li>
+        <div class="lit-meta">Senyo, P.K. et al., 2024, JSIS, 33(3), 101849</div>
+        <div class="lit-note">提出资源受限情境下的“数字分支战略”与节俭式创新过程模型</div></li>
 
       <li><a href="https://www.sciencedirect.com/science/article/pii/S1947818625000328" target="_blank" rel="noopener">Veolia 企业级 SISP 框架实施案例（Implementing a SISP Framework at Veolia）</a>
-        <div class="lit-meta">Sabir, S., 2025, ScienceDirect</div>
-        <div class="lit-note">企业级 SISP 落地案例（BSP→SISP，CMMI 五级）</div></li>
+        <div class="lit-meta">Sabir, S., 2025, International Journal of Information System Modeling and Design, 16(1), IGI Global</div>
+        <div class="lit-note">企业级 SISP 落地案例（BSP→SISP 演进、两层对齐网格、CMMI 五级与量化收益证据链）</div></li>
 
     </ul>
         <div class="callout tip">💡 <b>软考/职业考点</b>：本章对应软考高项「项目立项管理 / 可行性研究（技术·经济·运行·法律）」。课堂立项书即高项案例题的“背景段”雏形。</div>
@@ -501,11 +515,21 @@
       <p><b>交付：</b>对比「自建工具 vs 调用平台连接器 / API」，录屏总结集成成本、数据权限与维护责任。</p>
     </div>
 
-    <h3 class="sec-h" id="labgame">🎮 课堂互动小游戏 · 边玩边学</h3>
-<div style="border:1px solid #1c4a5a;border-radius:12px;overflow:hidden;margin:14px 0;background:#0E2F3A;">
-  <iframe src="game_ch02.html" title="第2章 课堂互动小游戏" loading="lazy" style="width:100%;height:720px;border:0;display:block;"></iframe>
-  <p style="margin:0;padding:10px 14px;font-size:13px;color:#9fc2cf;">提示：游戏需联网访问本站；若未显示，可<a href="game_ch02.html" target="_blank" rel="noopener" style="color:#E0A82E;">点此在新标签页打开</a>。</p>
-</div>
+    <h3 class="exp-h">🏛️ 名校对标进阶实验（选做，含操作要点与范例）</h3>
+    <div class="expext">
+      <h4>进阶实验 · “适度规模方案”选型与跨组可行性听证<span class="tag">CMU 67-373 · Berkeley CS169</span></h4>
+      <p><b>目标：</b>避免“为用 AI 而用 AI”的过度设计（Over-engineering），学会站在真实客户/资助方视角为技术方案辩护。</p>
+      <p><b>任务：</b>为你的贯穿项目设计两套备选方案（方案 A：零代码 Coze + 托管知识库；方案 B：自建后端 + 开源 RAG + API），从技术、经济、操作、法律四维度对比后选定“适度规模方案（Right-sized Solution）”；随后与邻组互换扮演“甲方评审团”，向对方立项书提出至少 3 条可行性质疑并记录回应。</p>
+      <p><b>交付：</b>双方案对比矩阵 + 甲方质疑与回应纪要（1 页）。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>① 评估“团队当前技能 + 17 周课内工时”能否支撑所选方案（CMU 67-373 核心准则）；② 质疑必须具体到数据来源、Token 预算、并发上限或合规边界，禁止空泛提问“安不安全”。</p>
+        <p><b>参考范例（质疑与回应）：</b><br>
+        • <b>甲方质疑：</b>“你们计划接入某商业论文全文库做 RAG，是否获得批量抓取与再分发授权？单月 500 名学生并发查询的 Token 费用谁承担？”<br>
+        • <b>乙方回应：</b>“改用馆藏公开元数据 + 摘要做本地索引（规避版权风险），同时在工作流前置规则关键词过滤，将大模型调用量削减 40%，单月预算控制在 50 元以内。”</p>
+      </details>
+    </div>
+
 <h2 class="part p4">第四部分　本章小结</h2>
       <h3 class="sec-h" id="sum">本章小结</h3>
     <div class="summary">
@@ -543,9 +567,6 @@
     <div class="readbox">
       <span class="dot" id="readDot"></span>
       <button class="btn ghost" id="markRead" data-ch="2">标记为已读</button>
-    </div>
-    <div class="btnrow">
-      <a class="btn" href="game_ch02.html" target="_blank" rel="noopener">🎮 打开第 2 章互动游戏</a>
     </div>
 </main>
 </div>

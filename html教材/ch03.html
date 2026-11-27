@@ -76,6 +76,13 @@
       <div class="card"><b>活动图/状态图</b> ↔ 工作流节点=活动；会话状态机=状态图</div>
       <div class="card"><b>对话式需求获取</b> ↔ 自然语言提示即轻量需求获取方式</div>
     </div>
+    <p><b>映射解读：</b>传统软件需要把需求翻译成程序员才懂的代码，而智能体时代<b>“提示词即规格（Prompt as Spec）”</b>——你在系统提示词里写清的角色、限制和输出格式，模型会直接按此执行。因此需求分析越严谨，智能体越稳定。</p>
+    <div class="callout tip">
+      💡 <b>场景案例 · “新生报到咨询助手”的需求映射：</b><br>
+      • <b>用例图定边界</b>：参与者“新生”只有“查报到流程、查宿舍分配、报修登记”三个用例，不包含“修改学籍成绩”，直接决定智能体只挂接对应 3 个插件；<br>
+      • <b>DFD 拆数据流</b>：新生问题（输入）→ 意图识别加工 → 分流至“校历知识库”或“保卫处电话表”（数据存储）→ 汇总卡片（输出）；<br>
+      • <b>SRS 变提示词</b>：“仅依据《2026迎新指南》作答，严禁猜测学费减免政策；若不确定必须回复人工咨询电话。”这就是把非功能需求（可靠性）写进了 SRS。
+    </div>
     <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
     <p>以下矢量图把需求分析方法"画出来"，建立可视化心智模型。</p>
 
@@ -226,6 +233,11 @@
     <h2 class="part p2">第二部分　课程内容</h2>
       <h3 class="sec-h" id="s31">3.1　需求获取常用方法</h3>
     <p>获取需求不能只靠脑袋想，常用四法：① <b>访谈与问卷</b>（问清痛点与目标）；② <b>观察与文档</b>（分析现有流程、制度，发现隐性需求）；③ <b>原型与卡片</b>（用模板快速出可交互原型，边看边改）；④ <b>对话式探索</b>（以 AI 提示词引导需求收敛，一句话需求→需求文档）。</p>
+    <div class="callout tip">
+      💡 <b>前沿实证 · LLM 需求工程的重心迁移与查漏方法：</b><br>
+      • <b>重心迁移（Zadenoori 等，2025）</b>：对 74 篇研究的系统综述表明，大模型在需求工程中的重心已从传统的“缺陷检测/分类”转向<b>需求获取（Elicitation）与验证（Validation）</b>；Hemmat 等（2025）对 29 篇主研究的统计显示，目前最活跃的阶段是<b>建模与规格说明（10 篇）</b>及<b>验证与质量保证（10 篇）</b>。<br>
+      • <b>自动查漏（Luitel 等，2024）</b>：可用掩码语言模型（BERT MLM）遮蔽部分需求并预测缺失术语，在 PURE 数据集 40 份规格上显著提升了需求完整性检测能力。
+    </div>
 
     
     <div class="pptgrid" data-cnt="6">
@@ -252,6 +264,7 @@
       <h3 class="sec-h" id="s32">3.2　功能需求 vs 非功能需求</h3>
     <p><b>功能需求</b>回答"系统必须做什么"——如"上传配料表图片并给出安全分析"；<b>非功能需求</b>回答"做得有多好"——如回答准确性、幻觉控制、响应时延、合规。信息资源场景中，检索准确率、知识库引用可追溯、隐私合规同属非功能要点。</p>
     <p>用例要素：<b>参与者 + 目标 + 主成功场景 + 扩展（异常分支）</b>。用户故事模板：<b>「作为&lt;角色&gt;，我想要&lt;功能&gt;，以便&lt;价值&gt;」</b>，便于拆解与验收。</p>
+    <p><b>需求规格“六性”检查表（验收标准）：</b>综合 Ronanki（2023）与 IEEE 830 标准，一份合格的需求规格（及智能体系统提示词）须逐条自检：<b>① 无歧义性</b>、<b>② 完整性</b>（含未命中拒答边界）、<b>③ 一致性</b>、<b>④ 原子性</b>、<b>⑤ 可追溯性</b>（引用来源可点开/可核验）、<b>⑥ 可验证性</b>（给出如“准确率 ≥ 90%、幻觉率 &lt; 5%”的量化阈值）。</p>
 
     
     <div class="pptgrid" data-cnt="2">
@@ -266,6 +279,7 @@
       <h3 class="sec-h" id="s33">3.3　对话式需求：提示词即规格</h3>
     <p>在各类模型 API、智能体框架和桌面智能体中，<span class="term" data-def="系统提示词：开发者编写的全局角色与规则，稳定影响所有对话，是需求规格的一种实现载体。">系统提示词</span>可承载角色与行为约束，但不能替代工具权限、数据规则和工作流设计。提示词基本组成：角色设定 / 功能和流程 / 限制 / 回复格式——分别对应需求主体、功能、非功能边界与输出约定。</p>
     <div class="callout tip">💡 写法要点：用 Markdown 分级标题、列表、代码块；用 Jinja 模板 {{变量}} 动态插入；用 {} 引用已添加技能。需求写得越结构，智能体越可靠。</div>
+    <p><b>进阶策略与模块化生成：</b>Hemmat 等（2025）归纳了需求工程中最常用的七种提示模式，可在基础四段式（角色/功能/限制/格式）中按需叠加<b>认知校验器（Cognitive Verifier，追问澄清）</b>、<b>规格消歧（Specification Disambiguation）</b>与<b>变更请求模拟</b>。Zhu 等（2025）的 <b>ReqInOne</b> 智能体进一步把 SRS 生成拆为“摘要 → 需求提取 → 需求分类”三任务流水线，专家评测表明其结构与准确度优于单次整体生成，也印证了模块化是抑制幻觉的关键。</p>
 
           <h3 class="sec-h" id="s34">3.4　知识库赋能：需求探索提示词</h3>
     <p>KB《AI 辅助下的需求探索》能把原始业务描述补全为完整需求文档；其"角色/技能/限制"三段式即需求三类约束；《金字塔表达引擎》强调结论先行、归类分组；《费曼式深问器》纵向到底检验是否真懂需求本质。善用这些 KB 提示词，需求收敛又快又准。</p>
@@ -281,7 +295,9 @@
     <p>工作流式（确定性）：步骤/判断可精确定义（如费用报销审批），强调可靠、可预测、可审计；智能体式（自主性）：目标明确但路径不确定（如规划一次旅行），需规划、工具调用、反思迭代。</p>
     <span class="mod mod-kb">案例 · Deep Research 研究助手</span>
     <p>目标明确但路径开放：主动澄清目标、连续查询多数据源、边检索边整合、据新发现调整计划——对应任务分解、动态规划、网页浏览工具、长上下文/记忆等需求。</p>
-    <div class="callout src">📚 来源：ima 知识库《智能体宇宙》。</div>
+    <span class="mod mod-kb">拓展 · 落地底线：混合式（Human-in-the-loop）优先于全自动</span>
+    <p>多项系统综述一致指出：当前 LLM 需求工程仍面临“领域上下文理解不足、幻觉、提示不稳定”等挑战，产业界最可靠的落地路径是<b>“AI 生成初稿 → 人工按六性检查表评审 → 固化为需求基线”</b>的混合模式，而非让模型全自动定稿。</p>
+    <div class="callout src">📚 来源：ima 知识库《智能体宇宙》；Zadenoori 等（2025）；Hemmat 等（2025）。</div>
 
     
 <div class="casebox">
@@ -298,23 +314,23 @@
     <ul class="lit-list">
       <li><a href="https://arxiv.org/abs/2509.11446" target="_blank" rel="noopener">面向需求工程的 LLM：系统文献综述（LLMs for Requirements Engineering: A Systematic Literature Review）</a>
         <div class="lit-meta">Zadenoori et al., 2025, arXiv:2509.11446</div>
-        <div class="lit-note">74 篇主研究(2023–2024)的系统综述，含提示策略/评估方法</div></li>
+        <div class="lit-note">74 篇主研究(2023–2024)的系统综述，揭示重心从缺陷检测转向需求获取与验证</div></li>
 
       <li><a href="https://frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2025.1519437/full" target="_blank" rel="noopener">LLM 在软件需求工程中应用方向综述（Research directions for using LLM in software requirement engineering: a systematic review）</a>
-        <div class="lit-meta">Hemmat et al., 2025, Frontiers in Computer Science</div>
-        <div class="lit-note">SLR，含提示策略与评估方法</div></li>
+        <div class="lit-meta">Hemmat et al., 2025, Frontiers in Computer Science, 7</div>
+        <div class="lit-note">29 篇主研究映射，归纳四类提示策略、七种 RE 提示模式与五大挑战</div></li>
 
       <li><a href="https://doi.org/10.1007/s00766-024-00416-3" target="_blank" rel="noopener">提升需求完整性：基于 LLM 的自动化辅助（Improving requirements completeness: Automated assistance through large language models）</a>
-        <div class="lit-meta">Luitel et al., 2024, Requirements Engineering, 29, 73–95</div>
-        <div class="lit-note">需求完整性自动辅助</div></li>
+        <div class="lit-meta">Luitel, Hassani &amp; Sabetzadeh, 2024, Requirements Engineering, 29, 73–95</div>
+        <div class="lit-note">用 BERT 掩码语言模型在 PURE 数据集 40 份规格上实现需求缺漏自动检测</div></li>
 
-      <li><a href="https://www.connectedpapers.com/main/ba71fb0fa68ab7d566dd4bbc6ab27efe7a1ff4a9/Using-ChatGPT-in-Software-Requirements-Engineering%3A-A-Comprehensive-Review/graph" target="_blank" rel="noopener">ChatGPT 辅助需求获取的潜力研究（Investigating ChatGPT's Potential to Assist in Requirements Elicitation Processes）</a>
-        <div class="lit-meta">Ronanki et al., 2023, 会议</div>
-        <div class="lit-note">需求获取辅助</div></li>
+      <li><a href="https://arxiv.org/abs/2307.07381" target="_blank" rel="noopener">ChatGPT 辅助需求获取的潜力研究（Investigating ChatGPT's Potential to Assist in Requirements Elicitation Processes）</a>
+        <div class="lit-meta">Ronanki, Berger &amp; Horkoff, 2023, SEAA 2023, pp. 354–361 (arXiv:2307.07381 / DOI: 10.1109/SEAA60479.2023.00061)</div>
+        <div class="lit-note">6 问 × 7 项需求质量属性的专家对照实验，为对话式需求获取提供实证</div></li>
 
-      <li><a href="https://scholar.google.com/scholar?q=ReqInOne+Large+Language+Model-Based+Agent+for+Software+Requirements+Specification+Generation" target="_blank" rel="noopener">ReqInOne：基于 LLM 的智能体自动生成软件需求规格（ReqInOne: A Large Language Model-Based Agent for Software Requirements Specification Generation）</a>
-        <div class="lit-meta">Zhu et al., 2025, arXiv</div>
-        <div class="lit-note">智能体自动生成软件需求规格</div></li>
+      <li><a href="https://arxiv.org/abs/2508.09648" target="_blank" rel="noopener">ReqInOne：基于 LLM 的智能体自动生成软件需求规格（ReqInOne: A Large Language Model-Based Agent for Software Requirements Specification Generation）</a>
+        <div class="lit-meta">Zhu, Cordeiro &amp; Sun, 2025, IEEE RE 2025 (arXiv:2508.09648)</div>
+        <div class="lit-note">拆解为“摘要—提取—分类”三任务流水线的 SRS 自动生成智能体</div></li>
 
     </ul>
         <div class="callout tip">💡 <b>软考/职业考点</b>：本章对应软考高项「收集需求（范围管理）」、CISA「购置与开发(D3) 需求阶段审计」。需求质量决定系统质量，也是审计重点。</div>
@@ -369,11 +385,35 @@
       <p><b>交付：</b>录屏讲解「为何用例图能暴露遗漏需求」，标出至少 1 处补漏。</p>
     </div>
 
-    <h3 class="sec-h" id="labgame">🎮 课堂互动小游戏 · 边玩边学</h3>
-<div style="border:1px solid #1c4a5a;border-radius:12px;overflow:hidden;margin:14px 0;background:#0E2F3A;">
-  <iframe src="game_ch03.html" title="第3章 课堂互动小游戏" loading="lazy" style="width:100%;height:720px;border:0;display:block;"></iframe>
-  <p style="margin:0;padding:10px 14px;font-size:13px;color:#9fc2cf;">提示：游戏需联网访问本站；若未显示，可<a href="game_ch03.html" target="_blank" rel="noopener" style="color:#E0A82E;">点此在新标签页打开</a>。</p>
-</div>
+    <h3 class="exp-h">🏛️ 名校对标进阶实验（选做 1–2 项，含操作要点与范例）</h3>
+    <div class="expext">
+      <h4>进阶实验 A · 真实利益相关方访谈与同理心地图<span class="tag">CMU 17-313 (Elicit) · Stanford CS147</span></h4>
+      <p><b>目标：</b>摆脱“闭门造车式需求”，掌握基于实证访谈的用户需求获取与洞察提炼方法。</p>
+      <p><b>任务：</b>编写 5–8 个开放式访谈问题，实际访谈 2 名目标用户（如同学、馆员或社团负责人），整理访谈笔记并绘制 1 张<b>同理心地图（Empathy Map：说 / 想 / 做 / 感）</b>，从中提炼出 3 条可验证的功能需求与 2 条非功能需求。</p>
+      <p><b>交付：</b>访谈提纲与原始摘要 + 同理心地图 + 需求追踪表（需求条目 ↔ 访谈原话证据）。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>① 多问“上一次你遇到这个问题是怎么解决的？花了多久？”，少问引导性问题“你希不希望有个 AI 帮你？”；② 同理心地图中“说”与“做”的矛盾处往往隐藏着最真实的需求。</p>
+        <p><b>参考范例（需求追踪片段）：</b><br>
+        • <b>访谈原话（说）：</b>“我每次查档案借阅规定都要翻三个公众号推文，还是不确定能不能带水杯进去。”<br>
+        • <b>同理心提炼（感）：</b>焦虑、怕白跑一趟。<br>
+        • <b>转化需求：</b>功能需求 FR-01「支持按进馆场景一键返回明确禁限物品清单」；非功能需求 NFR-01「回答必须附带出处条款编号与更新日期」。</p>
+      </details>
+    </div>
+    <div class="expext">
+      <h4>进阶实验 B · 同伴需求规格走查（SRS Inspection）<span class="tag">Berkeley CS169 · IEEE 830</span></h4>
+      <p><b>目标：</b>学会识别自然语言需求中的二义性、不可测试性与遗漏项。</p>
+      <p><b>任务：</b>依据 <a href="课程实验环境.html">课程实验环境</a> 中的 SRS 标准目录，与邻组交叉评审需求文档，专门找出“无法验证的形容词”（如“响应快”“界面友好”“准确度高”），并将其改写为带量化指标的验收标准。</p>
+      <p><b>交付：</b>红笔批注版需求缺陷清单（≥5 条改写对照）。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>检验每条需求是否满足“可测试（Testable）”和“无歧义（Unambiguous）”两项底线；对智能体系统，尤其要明确“答不上来时该怎么拒答”。</p>
+        <p><b>参考范例（改写前后）：</b><br>
+        • <b>原需求（不合格）：</b>“智能体要回答准确、响应速度快。”<br>
+        • <b>改写后（合格）：</b>“在 20 条标准测试集上，事实准确率 ≥ 90%（无编造引用）；知识库未命中时必须在 3 秒内返回‘未找到相关记录’并引导人工咨询。”</p>
+      </details>
+    </div>
+
 <h2 class="part p4">第四部分　本章小结</h2>
       <h3 class="sec-h" id="sum">本章小结</h3>
     <div class="summary">
@@ -597,9 +637,6 @@
     <div class="readbox">
       <span class="dot" id="readDot"></span>
       <button class="btn ghost" id="markRead" data-ch="3">标记为已读</button>
-    </div>
-    <div class="btnrow">
-      <a class="btn" href="game_ch03.html" target="_blank" rel="noopener">🎮 打开第 3 章互动游戏</a>
     </div>
 </main>
 </div>

@@ -79,6 +79,12 @@
       <div class="card" data-page-node-id="sBoDM8r3HhOkmBwJlywDxF"><b data-page-node-id="GFeIH2ozRm9SU15aoZa143">RAG</b> ↔ 外挂知识库弥补大模型参数化知识静态性</div>
       <div class="card" data-page-node-id="fyUtxUrNZRUxICAc7sQcG1"><b data-page-node-id="kHU3HCVjwNDXQPf0dYELDc">提示词工程=规格</b> ↔ 规范化需求→结构化提示→可靠召回</div>
     </div>
+    <p><b>映射解读：</b>大模型本身只记住了训练截止前的“通用常识”，对本单位的私有文件一无所知。<b>DIKW 与数据库范式</b>教我们如何把杂乱无章的文档清洗成高质量知识单元，而 <b>RAG + 提示词规则</b>则负责在提问瞬间把最准确的那几条知识递给模型。</p>
+    <div class="callout tip">
+      💡 <b>场景案例 · “网络流行语档案馆”如何体现 DIKW 与 RAG：</b><br>
+      • <b>Data → Information → Knowledge</b>：原始热词表只是一堆词（Data）；加上“2021 年出现、源于职场讨论”的语境就变成信息（Info）；再总结出“反映年轻人缓解焦虑的情绪转向”并支持对比分析，就成了知识（Knowledge）；<br>
+      • <b>规范化分库</b>：把“年份/热度数值”放进 3NF 结构化数据表（防计数出错），把“背景故事长文本”切分进向量知识库（RAG 语义召回），再用提示词规定“先查表后检索，必须附出处年份”。
+    </div>
     <span class="mod mod-theory" data-page-node-id="tZrZRDcxMZqaU20izXCjpB">理论可视化 · 信息系统相关图形（4 幅）</span>
 
     <figure class="figure" data-page-node-id="h8jDb1HV6PSRS0NK8Duuy3">
@@ -324,6 +330,12 @@
 
       <h3 class="sec-h" id="s53">5.3　知识库与 RAG 工作原理</h3>
     <p data-page-node-id="IpDv23BmgRnjWyOByTfdiQ"><span class="term" data-def="RAG（检索增强生成）：先检索外部知识再生成回答，弥补大模型参数化知识的静态与幻觉问题。" data-page-node-id="qAAZty1pf0vhch8ypWfnRm">RAG</span> = 检索 + 增强 + 生成，先"查证"再"言"。流程：文本分段（500~1000 字符）→ Embedding 向量化 → 存入向量库；检索分语义/全文/混合；再把召回片段与问题拼接交大模型。<b data-page-node-id="WLP2ISbzcVh5U9bTZZEQXD">价值：减少幻觉、知识实时、可解释、领域适配</b>。</p>
+    <div class="callout tip">
+      💡 <b>RAG 演进谱系（三范式 / 五代与 SAGE 工程框架）：</b><br>
+      • <b>三范式（Gao 等，2024）</b>：<b>Naive RAG</b>（线性索引→检索→生成）→ <b>Advanced RAG</b>（检索前查询改写 + 检索后重排/压缩）→ <b>Modular RAG</b>（L1 模块/L2 子模块/L3 操作符三层乐高编排）；智源（BAAI）进一步补充 <b>GraphRAG</b> 与 <b>Agentic RAG</b> 构成五代演进。<br>
+      • <b>SAGE 框架（田永林、王飞跃等，2025）</b>：在传统 RAG 上引入<b>广域搜索模块</b>与<b>多级缓存管理模块</b>，兼顾实时知识获取与调用成本控制。<br>
+      • <b>提示词自动优化（DSPy）</b>：Khattab 等（2024）将提示流水线抽象为可编译计算图，由编译器自动优化示范与提示，使 GPT-3.5 / LLaMA2-13B 相对传统 few-shot 平均提升 <b>&gt;25% 与 &gt;65%</b>。
+    </div>
 
     
     <div class="pptgrid" data-cnt="12" data-page-node-id="Qdk99FgVb4WJb1iRuLCklp">
@@ -375,6 +387,7 @@
       </tbody>
     </table>
     <p data-page-node-id="RGJU65PXnMnxxMbvnxSg5O">召回负责"查全"（语义/全文/混合初筛），排序负责"查准"（重排）；可设最大召回数量（默认 5）与最小匹配度（默认 0.50）。</p>
+    <p><b>图情档真实案例（图谱 + RAG 协同）：</b>① 洪亮、林志煜（2026）在网络热词研究中建立“知识组织→检索→集成→更新”四阶段动态图谱框架（如“红温”与“你看又急”定义向量余弦相似度 <code>0.873 &gt; 0.85</code> 建立相似关联），以动态图谱作“记忆与推理”核心、RAG 作“知识与验证”引擎；② 杨建梁等（2025）基于《南方局党史资料大事记》构建红色档案“知识库+向量库”交互式知识发现系统，印证了“RAG 回答质量取决于底层知识组织规范程度”。</p>
 
     
     <div class="pptgrid" data-cnt="4" data-page-node-id="iXBVr8W5FsSxtlCMIQd1uY">
@@ -431,37 +444,33 @@
         <div class="lit-meta" data-page-node-id="OHaeFuxQMZdUBirhiJGQXG">Tian et al., 2025, 自动化学报, 51(6):1145–1169</div>
         <div class="lit-note" data-page-node-id="N3PMITQL83two9hKBRnyCr">中文顶刊，RAG 原理+拓展框架 SAGE</div></li>
 
-      <li data-page-node-id="GOMZiG7ueFYO4fUl9XJMEe"><a href="https://hub.baai.ac.cn/view/43613" target="_blank" rel="noopener" data-page-node-id="s7VadQD5gwMsJnc5DWPNhg">一文搞懂RAG技术的5种范式（A Comprehensive Survey of RAG's Five Paradigms）</a>
-        <div class="lit-meta" data-page-node-id="U9LLGU2tiORC1rWBB3y9Ce">BAAI, 2024, 智源研究院</div>
-        <div class="lit-note" data-page-node-id="myU4GiaGY44HceA6ngqp3z">Naive/Advanced/Modular/Graph/Agentic RAG</div></li>
+      <li data-page-node-id="GOMZiG7ueFYO4fUl9XJMEe"><a href="https://hub.baai.ac.cn/view/43613" target="_blank" rel="noopener" data-page-node-id="s7VadQD5gwMsJnc5DWPNhg">一文搞懂RAG技术的5种范式（技术社区解读，非学术论文）</a>
+        <div class="lit-meta" data-page-node-id="U9LLGU2tiORC1rWBB3y9Ce">BAAI, 2024, 智源研究院技术解读</div>
+        <div class="lit-note" data-page-node-id="myU4GiaGY44HceA6ngqp3z">Naive / Advanced / Modular / Graph / Agentic RAG 五代谱系梳理</div></li>
 
       <li data-page-node-id="cdaYnOjgEKGdIXmFWMeQy1"><a href="https://arxiv.org/abs/2405.13576" target="_blank" rel="noopener" data-page-node-id="iCu1iHrDq3yrH3DAAHDDpo">FlashRAG：高效的模块化 RAG 研究工具包（FlashRAG: A Modular Toolkit for Efficient RAG Research）</a>
-        <div class="lit-meta" data-page-node-id="AsvCUN3VxmwOuO1hBZZjK5">Jin et al., 2024, arXiv:2405.13576</div>
-        <div class="lit-note" data-page-node-id="XQEQtCByuU5D2629Fqwd7q">12 种 RAG 方法+32 数据集模块化工具包</div></li>
+        <div class="lit-meta" data-page-node-id="AsvCUN3VxmwOuO1hBZZjK5">Jin et al., 2024/2025, WWW 2025 (arXiv:2405.13576)</div>
+        <div class="lit-note" data-page-node-id="XQEQtCByuU5D2629Fqwd7q">实现 16 种 RAG 方法与 38 个基准数据集的模块化开源工具包</div></li>
 
       <li data-page-node-id="JTQuaeEOx1b3BWShnZT7GJ"><a href="https://arxiv.org/abs/2402.19473" target="_blank" rel="noopener" data-page-node-id="6Dgl7Q7Pg71tRkof976us3">面向 AIGC 的检索增强生成综述（Retrieval-Augmented Generation for AI-Generated Content: A Survey）</a>
         <div class="lit-meta" data-page-node-id="AeBiGDBjrAmzWjxT0XSvhh">Zhao et al., 2024, arXiv:2402.19473</div>
-        <div class="lit-note" data-page-node-id="KKEcJ4HouUU148wsUuTgMH">AIGC 视角的 RAG 综述</div></li>
+        <div class="lit-note" data-page-node-id="KKEcJ4HouUU148wsUuTgMH">AIGC 全模态视角下“检索器如何增强生成器”的统一综述</div></li>
 
           <li data-page-node-id="An5ARYF2UrtHbZPFiC3tVJ"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E7%83%AD%E8%AF%8D%E5%8F%91%E7%8E%B0%E4%B8%8E%E6%BC%94%E5%8C%96%E9%A2%84%E6%B5%8B" target="_blank" rel="noopener" data-page-node-id="rQfE5hJiHpQrqRh0OYJu6y">基于动态知识图谱检索增强的网络热词发现与演化预测</a>
-        <div class="lit-meta" data-page-node-id="2QUPEn5DdzOjoLdeuGhpR2">洪亮, 等. 基于动态知识图谱检索增强的网络热词发现与演化预测[J]. 信息资源管理学报, 2026, 16(2): 50-62.</div>
-        <div class="lit-note" data-page-node-id="8GN5i9vGexA2mU9hjdlZxv">GraphRAG 思路：用动态图谱增强检索，缓解纯向量召回的割裂问题</div></li>
+        <div class="lit-meta" data-page-node-id="2QUPEn5DdzOjoLdeuGhpR2">洪亮, 林志煜. 基于动态知识图谱检索增强的网络热词发现与演化预测[J]. 信息资源管理学报, 2026, 16(2): 140-153.（需在 CNKI 检索题名获取）</div>
+        <div class="lit-note" data-page-node-id="8GN5i9vGexA2mU9hjdlZxv">GraphRAG 思路：四阶段动态图谱增强检索，缓解纯向量召回的割裂问题</div></li>
 
       <li data-page-node-id="EX4JoHbDESuLYRFk0s5HBV"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E7%BE%A4%E6%99%BA%E5%9B%BE%E8%B0%B1%E7%9A%84%E5%9B%BE%E4%B9%A6%E9%A6%86%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener" data-page-node-id="gfWJjQ9kUSZeEgqW9ypYGA">基于群智图谱的图书馆知识服务模型</a>
-        <div class="lit-meta" data-page-node-id="AHzScoUaZ3lPxrQCdw3ITb">曾子明, 等. 基于群智图谱的图书馆知识服务模型[J]. 图书馆杂志, 2026, 45(3): 20-30.</div>
+        <div class="lit-meta" data-page-node-id="AHzScoUaZ3lPxrQCdw3ITb">曾子明, 等. 基于群智图谱的图书馆知识服务模型[J]. 图书馆杂志, 2026, 45(3): 20-30.（需在 CNKI 检索题名获取）</div>
         <div class="lit-note" data-page-node-id="KoEbYBy5zRBtOGgSyaAurv">将用户众包与图谱结合，构建新型图书馆知识模型</div></li>
 
-      <li data-page-node-id="kIRlQijoqko3DMBn9pWi4i"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%BC%80%E6%BA%90%E7%A7%91%E6%8A%80%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%9A%E6%A8%A1%E6%80%81%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener" data-page-node-id="cLrhcnummCPgVFSHDZlPig">基于开源科技项目数据的多模态知识图谱构建研究</a>
-        <div class="lit-meta" data-page-node-id="bFSLlM706urnPELXNHKKAP">窦永香, 等. 基于开源科技项目数据的多模态知识图谱构建研究[J]. 情报理论与实践, 2025, 48(3): 70-80.</div>
-        <div class="lit-note" data-page-node-id="SkQ8JOgHkFWUN7LuBMkO34">多模态抽取 + 图谱融合，对应本章知识表示与多模态知识库</div></li>
-
-      <li data-page-node-id="AX1ChAkWLPBFpIRmfVDqfI"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BA%A2%E8%89%B2%E6%A1%A3%E6%A1%88%E8%B5%84%E6%BA%90%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9F%A5%E8%AF%86%E5%8F%91%E7%8E%B0" target="_blank" rel="noopener" data-page-node-id="2NqpdapIUyyh2Xt62jFH0R">基于大语言模型的红色档案资源交互式知识发现</a>
-        <div class="lit-meta" data-page-node-id="G4gzc8r0NHvIV2QGRf7TJu">杨建梁, 等. 基于大语言模型的红色档案资源交互式知识发现[J]. 图书情报工作, 2025, 69(15): 14-25.</div>
-        <div class="lit-note" data-page-node-id="WMV0BqxxrHaErRJWiHO7qU">LLM + RAG 实现档案资源的可对话式知识发现</div></li>
+      <li data-page-node-id="AX1ChAkWLPBFpIRmfVDqfI"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E5%9F%BA%E4%BA%8E%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BA%A2%E8%89%B2%E6%A1%A3%E6%A1%88%E8%B5%84%E6%BA%90%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9F%A5%E8%AF%86%E5%8F%91%E7%8E%B0" target="_blank" rel="noopener" data-page-node-id="2NqpdapIUyyh2Xt62jFH0R">基于大语言模型的红色档案资源交互式知识发现研究——以《南方局党史资料大事记》为例</a>
+        <div class="lit-meta" data-page-node-id="G4gzc8r0NHvIV2QGRf7TJu">杨建梁, 王一多, 黄美雯 等. 基于大语言模型的红色档案资源交互式知识发现研究——以《南方局党史资料大事记》为例[J]. 图书情报工作, 2025, 69(15): 112-123.（需在 CNKI 检索题名获取）</div>
+        <div class="lit-note" data-page-node-id="WMV0BqxxrHaErRJWiHO7qU">LLM + RAG 实现红色档案资源的可对话式知识发现</div></li>
 
       <li data-page-node-id="wX0P7DwToMiQ4QN46tif88"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E8%9E%8D%E5%90%88%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%99%BA%E8%83%BD%E9%97%AE%E7%AD%94%E7%B3%BB%E7%BB%9F%E7%A0%94%E7%A9%B6" target="_blank" rel="noopener" data-page-node-id="dC6ZCOv3Vfw8vCmVYF31hU">融合知识图谱与大模型的智能问答系统研究</a>
-        <div class="lit-meta" data-page-node-id="O2RpaTmpsSGNMeg4UJETG1">王颖, 等. 融合知识图谱与大模型的智能问答系统研究[J]. 情报科学, 2024, 42(7): 80-90.</div>
-        <div class="lit-note" data-page-node-id="TUr3B5flKLpC0QojXayWYs">图谱提供可解释路径、大模型负责自然语言表达，二者互补</div></li>
+        <div class="lit-meta" data-page-node-id="O2RpaTmpsSGNMeg4UJETG1">王颖, 等. 融合知识图谱与大模型的智能问答系统研究[J]. 情报科学, 2024, 42(7): 80-90.（刊期待在 CNKI 核验）</div>
+        <div class="lit-note" data-page-node-id="TUr3B5flKLpC0QojXayWYs">实体链接、知识补全、知识提示与混合推理互补机制</div></li>
 
     </ul>
         <div class="callout tip" data-page-node-id="hEO8xydTHAYIPjRvsxwyCp">💡 <b data-page-node-id="pbzW9xFzYZGHQGwPNdiiIW">软考/职业考点</b>：本章对应 CISA「保护信息资产(D5) 数据分级与保护」，并呼应《数据安全法》《个人信息保护法》。知识库即是受保护的信息资产。</div>
@@ -516,11 +525,23 @@
       <p data-page-node-id="bQEtBShXLPQdLOJqdavGb9"><b data-page-node-id="6HuANM9HAdB9bn2OCubRHq">交付：</b>录屏讲解「如何判断知识库够不够好」，给出改进项。</p>
     </div>
 
-    <h3 class="sec-h" id="labgame">🎮 课堂互动小游戏 · 边玩边学</h3>
-<div style="border:1px solid #1c4a5a;border-radius:12px;overflow:hidden;margin:14px 0;background:#0E2F3A;">
-  <iframe src="game_ch05.html" title="第5章 课堂互动小游戏" loading="lazy" style="width:100%;height:720px;border:0;display:block;"></iframe>
-  <p style="margin:0;padding:10px 14px;font-size:13px;color:#9fc2cf;">提示：游戏需联网访问本站；若未显示，可<a href="game_ch05.html" target="_blank" rel="noopener" style="color:#E0A82E;">点此在新标签页打开</a>。</p>
-</div>
+    <h3 class="exp-h">🏛️ 名校对标进阶实验（选做，含操作要点与范例）</h3>
+    <div class="expext">
+      <h4>进阶实验 · 叙事文本到 3NF 数据字典与结构化/向量库对照<span class="tag">CMU 67-272</span></h4>
+      <p><b>目标：</b>打通传统关系型数据建模（ER + 3NF）与现代 RAG 知识库组织的底层逻辑，掌握“精确事实查表、模糊语义查向量”的混合知识架构。</p>
+      <p><b>任务：</b>针对一段业务叙事（如“高校档案借阅管理”或自选项目数据），① 绘制 ER 图并规范化至第三范式（3NF），编写核心字段数据字典；② 将同一批数据分别放入“结构化数据表（Coze Database / SQLite）”与“文本切片向量知识库（RAG）”，用 5 个典型问题（含统计计数、精确条件过滤、语义概括）对比两者的回答准确率。</p>
+      <p><b>交付：</b>ER 图 + 3NF 数据字典 + 5 题对照评测表。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>① 检查数据字典是否包含“字段名、类型、主外键、非空约束、业务含义”；② 故意设计 2 道聚合/计数类问题（如“2021 年共有多少条热词？”），观察纯向量检索为何容易数错，而结构化查表能 100% 算准。</p>
+        <p><b>参考范例（对照评测片段）：</b><br>
+        • <b>测试题：</b>“统计分类为‘职场文化’且热度高于 80 的热词数量。”<br>
+        • <b>纯 RAG 向量库：</b>仅召回 Top-3 切片，漏数严重（准确率 40%）。<br>
+        • <b>结构化数据表（3NF）：</b>通过 SQL/工作流条件查询精确统计，准确率 100%。<br>
+        • <b>架构结论：</b>实体属性与统计类数据进 3NF 数据表，长文本解释进 RAG 知识库。</p>
+      </details>
+    </div>
+
 <h2 class="part p4">第四部分　本章小结</h2>
       <h3 class="sec-h" id="sum">本章小结</h3>
     <div class="summary" data-page-node-id="IOXT8cfAKpr2E0MI0KRFJM">
@@ -553,7 +574,7 @@
     <span class="mod mod-kb">📚 智能体工程必读文献 · 工程层 · 提示与编译（DSPy）</span>
     <ul class="lit-list">
       <li>
-        <a href="https://arxiv.org/abs/2310.03714" target="_blank" rel="noopener">Khattab et al.《DSPy: Compiling Declarative Language Model Calls into State-of-the-Art Pipelines》(ICLR 2024)</a>
+        <a href="https://arxiv.org/abs/2310.03714" target="_blank" rel="noopener">Khattab et al.《DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines》(ICLR 2024)</a>
         <div class="lit-meta">arXiv:2310.03714 · DOI https://doi.org/10.48550/arXiv.2310.03714</div>
         <div class="lit-note">用“编程+编译”替代手搓提示词；与第5章提示工程/RAG 互补</div>
       </li>
@@ -570,9 +591,6 @@
       <button class="btn ghost" id="markRead" data-ch="5" data-page-node-id="dk9bhf7NLlOiGb2lisr5Gg">标记为已读</button>
     </div>
 
-    <div class="btnrow">
-      <a class="btn" href="game_ch05.html" target="_blank" rel="noopener">🎮 打开第 5 章互动游戏</a>
-    </div>
   </main>
 </div>
 

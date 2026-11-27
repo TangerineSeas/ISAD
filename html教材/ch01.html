@@ -107,6 +107,14 @@
       <div class="card" data-page-node-id="LkDxlmcCOyECqw1w7cDnRC"><b data-page-node-id="gBVe22mF8mODJ9gaHswqyf">行动</b> ↔ 输出/执行（报表、消息、写库）</div>
       <div class="card" data-page-node-id="Xa7oGoaIVtVCNzaS8x5F9N"><b data-page-node-id="GR4CGgpfSo3n7XSZDQ19TP">记忆</b> ↔ 数据存储/知识管理（数据库、知识库）</div>
     </div>
+    <p><b>为什么能这样映射？</b>传统信息系统把“人—机—数据”的协作拆成<b>采集、处理、输出、存储</b>四件事，而 LLM 智能体只是把“死板的表单输入”升级成“自然语言/多模态感知”，把“写死的 if-else 代码”升级成“大模型语义推理与规划”。四项核心职能一个都没少，只是载体更智能。</p>
+    <div class="callout tip">
+      💡 <b>场景案例 · 高校图书馆“智能体馆员”如何对应四大职能：</b><br>
+      ① <b>感知（输入采集）</b>：学生拍一张书架照片或语音问“《信息系统分析与设计》借完了吗？”——替代了过去必须手动在 OPAC 检索框输入精确书名；<br>
+      ② <b>记忆（数据存储）</b>：连接馆藏数据库与借阅规则知识库，记住当前用户的学院与借阅权限；<br>
+      ③ <b>认知推理（处理计算）</b>：判断“纸本已借出但有电子版可在线阅读，且有同主题替代书目”，完成推荐决策；<br>
+      ④ <b>行动（输出执行）</b>：向学生推送电子书直达链接，并调用预约插件自动登记纸本到书提醒。
+    </div>
     <span class="mod mod-theory" data-page-node-id="7ucUFy8dKHNo80ni7q5hKf">
     <span class="mod mod-theory" data-page-node-id="GD-T1">延伸 · 智能体理论基础（节选自权威指南 1.2）</span>
     <p>经典教材《人工智能：一种现代方法》(Russell &amp; Norvig, 1995) 把 AI 的目标定义为"构建<b>理性智能体</b>"：对每一个可能的感知序列，选择使预期效用最大的行动。在 LLM 时代，系统提示词"你是一个……助手"即定义了当前任务的效用边界——<b>指令即目标</b>；这解释了为什么"提示词写不清，智能体行为就混乱"。</p>
@@ -345,6 +353,9 @@
 
     <div class="callout tip" data-page-node-id="KCZs4oc3WUyyDVVUCUwI8j">💡 一句话记忆：传统信息系统是"你告诉我怎么做"，智能体是"你告诉我目标，我来想办法"。</div>
 
+    <span class="mod mod-theory">拓展 · "脑—感知—行动"通用框架与三维研究地图</span>
+    <p>Xi 等（2023）提出 LLM 智能体的通用框架由三大部件构成：<b>Brain（大脑，负责推理、规划与记忆）</b>、<b>Perception（感知，接收多模态环境输入）</b>、<b>Action（行动，调用工具作用于环境）</b>，并归纳出<b>单智能体、多智能体、人机协同</b>三类主线场景。Wang 等（2024）进一步给出智能体领域的三维研究地图：<b>构建（Construction：规划/记忆/工具模块）— 应用（Applications：社科/自然/工程）— 评价（Evaluation：能力与回归评测）</b>，本课程第 4–9 章即沿着这张地图展开。</p>
+
     
     <div class="pptgrid" data-cnt="7" data-page-node-id="Rs86vZ3yMTOHV9WBOSFqGL">
       <figure class="wxfig" data-page-node-id="M6fEWpv1RQaeMHllmyDXj3">
@@ -377,10 +388,13 @@
       <tbody data-page-node-id="5FUEEJEqIOLMyeHTB9Y19E">
         <tr data-page-node-id="qHubZM5FDzMjaWOJNDCy6C"><td data-page-node-id="0ksd1nEN3tt2diZvpjqlpC"><b data-page-node-id="djjplDV5jKkjiFj9DWPqHG">感知（Perceive）</b></td><td data-page-node-id="ABEs94EOrQ5ivngBs4umr8">接收用户输入、读取文件/网页/数据库</td><td data-page-node-id="rO9wUF7axfnugJbrFPS2Bx">输入 / 数据采集</td></tr>
         <tr data-page-node-id="BzHa3ECx6xsiG2e4N1otq5"><td data-page-node-id="dS65T8Ev3nDRLDQFCOBEEt"><b data-page-node-id="qs3947nHFFy5jnA3mXWVc3">认知与推理（Reason）</b></td><td data-page-node-id="RKYtupH6AwCDlKMNpNeDDt">理解意图、规划步骤、做判断</td><td data-page-node-id="1fbIpzjCvJeQPi8zYooEAK">处理 / 计算</td></tr>
-        <tr data-page-node-id="gogoffFgCZtyHJ3CrHDLp4"><td data-page-node-id="UTrPmZycFhu1GFIvBDzoW1"><b data-page-node-id="x0GzcD4rl4uAJsoZiv7XuR">行动（Act）</b></td><td data-page-node-id="XPpnHyTJUaOfCuSmSOpSWT">调用插件、写文件、发消息、返回结果</td><td data-page-node-id="DAGPtRA8PJGHK2n79PZHMu">输出 / 执行</td></tr>
-        <tr data-page-node-id="cwdkxCWWMa8T6ujgC1dbNd"><td data-page-node-id="KDaIa76z62RulpMByg3mz3"><b data-page-node-id="WmskEWrE6l3MBftxc3Q3ER">记忆（Remember）</b></td><td data-page-node-id="RlIhhf3gb0qMIHPnjzMmt9">保存对话历史与长期经验</td><td data-page-node-id="1Xv2uAUCNNL4iws4UmkJQm">数据存储 / 知识管理</td></tr>
+        <tr data-page-node-id="gogoffFgCZtyHJ3CrHDLp4"><td data-page-node-id="UTrPmZycFhu1GFIvBDzoW1"><b data-page-node-id="x0GzcD4rl4uAJsoZiv7XuR">行动（Act）</b></td><td data-page-node-id="XPpnHyTJUaOfCuSmSOpSWT">调用插件、写文件、发消息、返回结果（<b>四阶段流水线</b>：任务规划 → 工具选择 → 工具调用 → 响应生成）</td><td data-page-node-id="DAGPtRA8PJGHK2n79PZHMu">输出 / 执行</td></tr>
+        <tr data-page-node-id="cwdkxCWWMa8T6ujgC1dbNd"><td data-page-node-id="KDaIa76z62RulpMByg3mz3"><b data-page-node-id="WmskEWrE6l3MBftxc3Q3ER">记忆（Remember）</b></td><td data-page-node-id="RlIhhf3gb0qMIHPnjzMmt9">保存对话历史与长期经验；图情视角下通过<b>知识组织、检索、分析、服务、评价</b>五路径实现 <b>KM = IM × AI</b></td><td data-page-node-id="1Xv2uAUCNNL4iws4UmkJQm">数据存储 / 知识管理</td></tr>
       </tbody>
     </table>
+
+    <span class="mod mod-theory">前沿 · 为什么必须搭工作流？复合 AI 系统（Compound AI System）的硬证据</span>
+    <p>Berkeley BAIR 团队（Zaharia 等，2024）指出，AI 工程正从“单一统计模型”转向由<b>多次模型调用、检索器与外部工具协同的复合 AI 系统</b>：Databricks 调研显示 <b>60% 的 LLM 应用使用 RAG、30% 使用多步链</b>；FrugalGPT 通过模型路由可在同等成本下提升质量约 4% 或降本约 90%。但复合系统也带来跨组件联合优化与运维监控（DataOps/安全）的新挑战。</p>
     
     <span class="mod mod-theory" data-page-node-id="GD-T3">延伸 · 从"单体多技能"到工程化（节选自权威指南 1.1.6）</span>
     <p>智能体并非一蹴而就。从早期自定义 API 到今天的标准化工具连接，核心演进可总结为四个维度：</p>
@@ -394,6 +408,9 @@
       </tbody>
     </table>
     <p>更进一步，Agent 时代可统一到一个三维思考框架——<b>Goal（目标工程）· Context（上下文工程）· Constraints（约束）</b>：能力不只取决于模型智力，更取决于这三者的设计完整性与平衡；进入生产环节时，<b>约束层</b>的成熟度往往成为瓶颈。</p>
+    <div class="callout tip">
+      💡 <b>什么是上下文工程（Context Engineering）？</b>Anthropic（2025）指出，模型拥有有限的<b>注意力预算</b>，上下文越长准确召回越弱（<b>context rot</b>），因此应追求“最小但高信号的 token 集合”。长时任务常用四类技术：① <b>即时检索（Just-in-time retrieval）</b>仅保留轻量引用按需加载；② <b>上下文压缩（Compaction）</b>接近上限时高保真摘要重启；③ <b>结构化笔记</b>（如 <code>NOTES.md</code> 持久记忆）；④ <b>子代理（Sub-agent）</b>独立深挖后仅回传 1,000–2,000 token 摘要。
+    </div>
 
     <p data-page-node-id="jbfja2TD3xP2SQGtNKOnkp">对<b data-page-node-id="g06nOZIOXGlYU6oPOOAkrS">信息资源管理专业</b>的同学而言，这正说明：智能体没有脱离信息系统范畴，而是把"采集—处理—存储—输出"这个经典闭环，用更自然的人机交互重新封装了一遍。我们过去学的数据组织、知识分类，恰是"记忆"与"知识"能力的理论基础。</p>
 
@@ -451,6 +468,7 @@
     <p data-page-node-id="p8W4AD4fC31y6MTE6Xp3Ba">智能体的运行是一个持续闭环（如图）。它先<b data-page-node-id="HYUKqqUXtDNflO16Hn1OQe">感知</b>环境与用户诉求，再<b data-page-node-id="OKEAfdSWb4s7OHUTfU8mPF">决策</b>（LLM 规划"下一步做什么"），
        然后<b data-page-node-id="MS3GCsauQ12c4E6K1IaXvh">行动</b>（调用工具或修改状态），行动结果又成为新的感知输入——如此循环，直到目标达成。</p>
     <div class="callout quote" data-page-node-id="wQZ7usu7gL4k3lOEDJHlnF">感知 → 决策 → 行动 →（反馈）→ 再感知 → …</div>
+    <p><b>实证支撑（ReAct 范式）：</b>Yao 等（2023）让大模型交错生成推理轨迹（Thought）与工具动作（Action），再将环境观测（Observation）回流为下一轮输入。在 HotpotQA/FEVER 上调用 Wikipedia API 显著缓解了纯思维链（CoT）的幻觉；在 ALFWorld 与 WebShop 交互决策基准上，仅用 1–2 个示例即分别超越传统模仿/强化学习基线 <b>34% 与 10%</b>。</p>
     <p data-page-node-id="PO6cRFAzA7QQuGWLlFHVOg">这个结构源自控制论的<span class="term" data-def="反馈环（Feedback Loop）：系统将输出回送为输入以自我修正的控制结构。" data-page-node-id="QH26B2beEZiaKl1aAvR3vt">反馈环</span>。
        与瀑布式信息系统"需求→设计→实现→交付"的单向推进不同，智能体是<b data-page-node-id="179dOXy8hBgdYCKhSHOLrO">自适应闭环</b>：它允许在执行中根据环境变化调整计划，这也是它更"像人"的原因。</p>
 
@@ -595,7 +613,7 @@
     <ol data-page-node-id="Jy8L8G1KJ3oU9brrsBv0UT">
       <li data-page-node-id="O5jNSywqnC6UyJaRH3vvoj"><b data-page-node-id="MbC8rC0aUkzURGmundO0hG">定义目标</b>：这个智能体替谁、解决什么问题？（对应系统规划）</li>
       <li data-page-node-id="yHeX6jQxfGmkq9ZB1Ehc3h"><b data-page-node-id="ttaxOAmphsB97r1eIbxhNv">设计人设与提示词</b>：用自然语言写清它的角色、语气、能力边界。（对应需求/设计）</li>
-      <li data-page-node-id="zn4HBCgsv0e30rpAkm7nVA"><b data-page-node-id="ndxw5mIaySOugK2GXM5kBp">添加知识与插件</b>：挂载专属资料库、接入外部工具。（对应系统设计/集成）</li>
+      <li data-page-node-id="zn4HBCgsv0e30rpAkm7nVA"><b data-page-node-id="ndxw5mIaySOugK2GXM5kBp">添加知识与插件</b>：挂载专属资料库、接入外部工具（对应系统设计/集成）。<b>工程提示（ACI 防呆设计）</b>：Anthropic 提出“智能体—计算机界面（ACI）”概念——像打磨用户界面一样打磨插件的参数名、描述与示例；若人类工程师都分不清该用哪个工具，Agent 同样会选错。</li>
       <li data-page-node-id="dF0N5knxTpA01YJ7i8okfO"><b data-page-node-id="KBLsGGNhza5eFTYHzvziIu">编排工作流</b>：把多步逻辑用节点串起来。（对应详细设计）</li>
       <li data-page-node-id="knFC0cFrg5qziMj9wDW3RF"><b data-page-node-id="8Hpv425dAMfZoAIZFDQv1N">测试与调优</b>：用真实问题验证效果，迭代提示词。（对应系统测试）</li>
       <li data-page-node-id="OTpxqg18wko0bFah2DcoPW"><b data-page-node-id="nUR6pHcEuZJ0GVrLXiNwDz">发布</b>：部署到对话平台或业务系统。（对应实施）</li>
@@ -616,6 +634,7 @@
       </tbody>
     </table>
     <p>典型模式：① <b>规划-执行</b>（先定计划再逐步执行，适合结构化任务）② <b>ReAct</b>（推理+行动交替，适合探索性任务）③ <b>反思-改进</b>（执行后自我评估，适合质量把控）④ <b>多智能体协作</b>（角色分工协同，适合复杂项目）。其共同底座是：状态管理、工具接入、终止条件、可观测性与人机协作护栏。</p>
+    <p><b>权威边界与统一视角：</b>Anthropic（2024）将 <b>Workflow</b> 定义为“LLM 与工具由预定义代码路径编排”，将 <b>Agent</b> 定义为“LLM 动态决定自身流程与工具使用”，并归纳了五种基础模式：提示链、路由、并行（分段/投票）、编排—工作器、评估—优化；Li（2025）则用三类 LLM 角色（策略模型/评估器/动态模型）与三大范式（工具使用含 RAG、规划、反馈学习）将它们纳入同一坐标系。</p>
 <div class="callout src">📚 来源：yeasy《智能体 AI 权威指南》第1章《智能体范式革命》（v1.0.0, 2026-08-18, CC BY-NC-SA 4.0）。以下为节选与教学化改写。</div>
     <h3 class="sec-h" id="s16" data-page-node-id="kur4XA2i6awbXteMWp20bZ">1.6　主流智能体开发平台选型（信息资源管理视角）</h3>
     <p data-page-node-id="ismIeg0MF0kl8b8WAnr06n">除 Coze 外，业界还有 Dify、文心智能体、通义星尘、豆包、以及面向开发者的 LangChain 等。选型时建议从三个角度判断：</p>
@@ -733,39 +752,39 @@
 
 <span class="mod mod-kb" id="lit" data-page-node-id="TVOSsevmq1HkfYHdUHahiu">前沿文献 · 近三年精选（2023–2026）</span>
     <p data-page-node-id="1U9bqeW86mBI17jOxMP2p8">以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
-          <div class="callout src" data-page-node-id="NiVAqK04UGRO185elfjHZD">🎓 <b data-page-node-id="Q9HHENmFHPoH8KPXvjZ3xk">学界观点</b>：张晓林（2024）在《中国图书馆学报》提出“Library-Inside”，主张把图情的知识组织与情报能力内嵌到科研与学习工作流中；叶鹰等（2024）进一步以 AIGPT 技术生态探讨“全面知识管理”（TKM = IM × AI）。这与本课程“智能体即嵌入业务流的能力单元”主线高度契合。</div>
+          <div class="callout src" data-page-node-id="NiVAqK04UGRO185elfjHZD">🎓 <b data-page-node-id="Q9HHENmFHPoH8KPXvjZ3xk">学界观点</b>：张晓林（2024）在《中国图书馆学报》提出“Library-Inside”三级演进模型——<b>1.0 知识应用智能助手 → 2.0 知识生产智慧座舱 → 3.0 生态养育站（Library×）</b>，主张将图情能力内嵌用户工作流、以第一性原则养育用户生产力；叶鹰、叶永鑫、赵星（2024）进一步指出 AI-GPT 正通过知识组织、检索、分析、服务、评价五路径推动信息管理迈向全面知识管理（<b>KM = IM × AI</b>）。这与本课程“智能体即嵌入业务流的能力单元”主线高度契合。</div>
 <ul class="lit-list" data-page-node-id="jl3SBSoGWwxriIqiFf7jF1">
-      <li data-page-node-id="MUEmF2u9k1mFG0dTuHEiGy"><a href="https://arxiv.org/abs/2309.02186" target="_blank" rel="noopener" data-page-node-id="uQciHPsmTrcGU3IhArcB6A">大语言模型智能体的崛起与潜力：综述（The Rise and Potential of Large Language Model Based Agents: A Survey）</a>
-        <div class="lit-meta" data-page-node-id="D4lraTmrSVVJtwIS9DhxgV">Xi et al., 2023, arXiv:2309.02186</div>
-        <div class="lit-note" data-page-node-id="yVDqvP8vnmMkIRaNbzGxrT">奠定“脑–感知–行动”智能体栈，最常被引用的入门综述</div></li>
+      <li data-page-node-id="MUEmF2u9k1mFG0dTuHEiGy"><a href="https://arxiv.org/abs/2309.07864" target="_blank" rel="noopener" data-page-node-id="uQciHPsmTrcGU3IhArcB6A">大语言模型智能体的崛起与潜力：综述（The Rise and Potential of Large Language Model Based Agents: A Survey）</a>
+        <div class="lit-meta" data-page-node-id="D4lraTmrSVVJtwIS9DhxgV">Xi et al., 2023, arXiv:2309.07864</div>
+        <div class="lit-note" data-page-node-id="yVDqvP8vnmMkIRaNbzGxrT">奠定“Brain–Perception–Action”智能体通用框架与三类应用场景，最常被引用的入门综述</div></li>
 
       <li data-page-node-id="Tr6AHCSOdmMMiI4AfDDwAJ"><a href="https://arxiv.org/abs/2308.11432" target="_blank" rel="noopener" data-page-node-id="No0IIBVE1OlbGOuieYIsHG">基于大语言模型的自主智能体综述（A Survey on Large Language Model based Autonomous Agents）</a>
         <div class="lit-meta" data-page-node-id="XL0s2iczGDP34oGkyizQVZ">Wang et al., 2024, Frontiers of Computer Science (arXiv:2308.11432)</div>
-        <div class="lit-note" data-page-node-id="VaB5zcWvPNrb6CW2gu8V46">单智能体规划 / 多智能体协作 / 人在回路的系统分类</div></li>
+        <div class="lit-note" data-page-node-id="VaB5zcWvPNrb6CW2gu8V46">提出“构建—应用—评价”三维研究地图与统一构造框架</div></li>
 
       <li data-page-node-id="gn3WHwF3kEdXaraglufDW6"><a href="https://arxiv.org/abs/2508.17281" target="_blank" rel="noopener" data-page-node-id="s2jXp9Gk2RhqMtsDFFioGA">从语言到行动：LLM 作为自主智能体与工具使用者的综述（From Language to Action: A Review of LLMs as Autonomous Agents and Tool Users）</a>
-        <div class="lit-meta" data-page-node-id="ms3SsOi5ZMvyazcrneDYtv">Chowa et al., 2025/2026, Artificial Intelligence Review (arXiv:2508.17281)</div>
-        <div class="lit-note" data-page-node-id="LfKPLW84ZeLw8hneq3a66j">聚焦 2023–2025 A*/A 会议与 Q1 期刊，覆盖架构/工具/认知机制</div></li>
+        <div class="lit-meta" data-page-node-id="ms3SsOi5ZMvyazcrneDYtv">Chowa et al., 2025/2026, Artificial Intelligence Review（预印本 arXiv:2508.17281）</div>
+        <div class="lit-note" data-page-node-id="LfKPLW84ZeLw8hneq3a66j">聚焦 2023–2025 A*/A 会议与 Q1 期刊及 68 个公开数据集，覆盖架构/工具/认知机制</div></li>
 
-      <li data-page-node-id="O00hqBla7C29rxSkCEb2tB"><a href="https://www.deepnlp.org/store/ai-agent/autonomous-agent/pub-xinzhel/llm-agent-survey" target="_blank" rel="noopener" data-page-node-id="ZorFxq9h1dF9hK1LdG9XKc">LLM 智能体三大范式综述：工具使用、规划与反馈学习（A Review of Prominent Paradigms for LLM-Based Agents: Tool Use, Planning, and Feedback Learning）</a>
-        <div class="lit-meta" data-page-node-id="h0c1ufX9j5KodaKbvhiNGH">Li, X., 2025, COLING 2025</div>
-        <div class="lit-note" data-page-node-id="ap6eg3zgAPNdsvlZCk5vtV">工具使用(含RAG)/规划/反馈学习三大范式</div></li>
+      <li data-page-node-id="O00hqBla7C29rxSkCEb2tB"><a href="https://arxiv.org/abs/2406.05804" target="_blank" rel="noopener" data-page-node-id="ZorFxq9h1dF9hK1LdG9XKc">LLM 智能体三大范式综述：工具使用、规划与反馈学习（A Review of Prominent Paradigms for LLM-Based Agents: Tool Use (Including RAG), Planning, and Feedback Learning）</a>
+        <div class="lit-meta" data-page-node-id="h0c1ufX9j5KodaKbvhiNGH">Li, X., 2025, COLING 2025 (arXiv:2406.05804)</div>
+        <div class="lit-note" data-page-node-id="ap6eg3zgAPNdsvlZCk5vtV">提出 LMPR 三类角色与工具使用(含RAG)/规划/反馈学习三大范式统一分类法</div></li>
 
-      <li data-page-node-id="UpFsxAZsGQrxk6sP3sbZOd"><a href="https://scholar.google.com/scholar?q=LLM-Based+Agents+for+Tool+Learning%3A+A+Survey" target="_blank" rel="noopener" data-page-node-id="CHoAyMjOEGnoHTbKi6YJZ2">面向工具学习的 LLM 智能体综述（LLM-Based Agents for Tool Learning: A Survey）</a>
-        <div class="lit-meta" data-page-node-id="8b003RP6JZGDrox7nQPHoB">Sun et al., 2025, arXiv</div>
-        <div class="lit-note" data-page-node-id="mPwfFpwlQ2ROOcWgLaD08s">200+ 工具增强智能体工作的统一评测协议</div></li>
+      <li data-page-node-id="UpFsxAZsGQrxk6sP3sbZOd"><a href="https://arxiv.org/abs/2405.17935" target="_blank" rel="noopener" data-page-node-id="CHoAyMjOEGnoHTbKi6YJZ2">基于大语言模型的工具学习综述（Tool Learning with Large Language Models: A Survey）</a>
+        <div class="lit-meta" data-page-node-id="8b003RP6JZGDrox7nQPHoB">Qu, Dai, Wei et al., 2024/2025, Frontiers of Computer Science 19(8):198343 (arXiv:2405.17935)</div>
+        <div class="lit-note" data-page-node-id="mPwfFpwlQ2ROOcWgLaD08s">提出工具学习“任务规划→工具选择→工具调用→响应生成”四阶段流水线</div></li>
 
-          <li data-page-node-id="HGCbShrmAzUGRaFqMvjPkf"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=Library-Inside%EF%BC%9A%E9%9D%A2%E5%90%91%E7%A7%91%E7%A0%94%E4%B8%8E%E5%AD%A6%E4%B9%A0%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%9A%84%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1%E5%B5%8C%E5%85%A5" target="_blank" rel="noopener" data-page-node-id="S4iiiBpc044zZhHxJEYtmo">Library-Inside：面向科研与学习工作流的知识服务嵌入</a>
-        <div class="lit-meta" data-page-node-id="EFeLVOLF5bAN6rgZmG9Yvv">张晓林. Library-Inside：面向科研与学习工作流的知识服务嵌入[J]. 中国图书馆学报, 2024, 50(3): 4-14.</div>
-        <div class="lit-note" data-page-node-id="PxmJH22F0DlH2OnYaVRHgD">提出将图书馆能力嵌入用户工作流的“馆内嵌”理念，呼应智能体即嵌入式能力</div></li>
+          <li data-page-node-id="HGCbShrmAzUGRaFqMvjPkf"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=Library-Inside%EF%BC%9A%E8%B5%8B%E8%83%BD%E5%9B%BE%E4%B9%A6%E9%A6%86%E6%96%B0%E8%B4%A8%E7%94%9F%E4%BA%A7%E5%8A%9B" target="_blank" rel="noopener" data-page-node-id="S4iiiBpc044zZhHxJEYtmo">Library-Inside：AI 赋能图书馆新质生产力的一种基础模型</a>
+        <div class="lit-meta" data-page-node-id="EFeLVOLF5bAN6rgZmG9Yvv">张晓林. Library-Inside：AI 赋能图书馆新质生产力的一种基础模型[J]. 中国图书馆学报, 2024, 50(3): 4-16.（需在 CNKI 检索题名获取全文）</div>
+        <div class="lit-note" data-page-node-id="PxmJH22F0DlH2OnYaVRHgD">提出“智能助手→智慧座舱→生态养育站”三级模型，呼应智能体即嵌入式能力</div></li>
 
-      <li data-page-node-id="2Rfn8KjFvUEVKhGCVGpPpx"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=AIGPT%20%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E7%94%9F%E6%80%81%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%85%A8%E9%9D%A2%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%BC%95%E8%AE%BA" target="_blank" rel="noopener" data-page-node-id="4yZ3HnapXJONZhvRiDhbM8">AIGPT 技术及其应用生态下实现全面知识管理引论</a>
-        <div class="lit-meta" data-page-node-id="bpaURnF76pDToZmHJBjHYq">叶鹰, 王涵洁. AIGPT 技术及其应用生态下实现全面知识管理引论[J]. 中国图书馆学报, 2024, 50(6): 15-26.</div>
-        <div class="lit-note" data-page-node-id="bCYQJunOnsLbQwBQvKGaUp">给出 TKM = IM × AI 公式，界定大模型时代知识管理新内涵</div></li>
+      <li data-page-node-id="2Rfn8KjFvUEVKhGCVGpPpx"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=AI-GPT%20%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E7%94%9F%E6%80%81%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%85%A8%E9%9D%A2%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%BC%95%E8%AE%BA" target="_blank" rel="noopener" data-page-node-id="4yZ3HnapXJONZhvRiDhbM8">AI-GPT 技术及其应用生态下实现全面知识管理引论</a>
+        <div class="lit-meta" data-page-node-id="bpaURnF76pDToZmHJBjHYq">叶鹰, 叶永鑫, 赵星. AI-GPT 技术及其应用生态下实现全面知识管理引论[J]. 中国图书馆学报, 2024, 50(6): 34-44.（需在 CNKI 检索题名获取全文）</div>
+        <div class="lit-note" data-page-node-id="bCYQJunOnsLbQwBQvKGaUp">给出 KM = IM × AI 公式与知识管理五条路径，界定大模型时代知识管理新内涵</div></li>
 
-      <li data-page-node-id="OwgbSrWqZm1NhfTaKE7lwq"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%99%BA%E6%85%A7%E5%9B%BE%E4%B9%A6%E9%A6%86%E4%B8%8E%E6%99%BA%E8%83%BD%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1%EF%BC%9A%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E8%8C%83%E5%BC%8F" target="_blank" rel="noopener" data-page-node-id="UUoFudg2AViPdeH3UqnjzL">智慧图书馆与智能知识服务：从概念到范式</a>
-        <div class="lit-meta" data-page-node-id="dFUrLlzLAFwa5WYT90J4WU">初景利, 等. 智慧图书馆与智能知识服务：从概念到范式[J]. 大学图书馆学报, 2023, 41(4): 12-20.</div>
-        <div class="lit-note" data-page-node-id="ek6EuwkjhArSnhimUbEoET">刻画智慧图书馆的智能服务框架，对应本章信息系统概述与智能体定位</div></li>
+      <li data-page-node-id="OwgbSrWqZm1NhfTaKE7lwq"><a href="https://kns.cnki.net/kns8s/defaultresult?kw=%E6%99%BA%E6%85%A7%E5%9B%BE%E4%B9%A6%E9%A6%86%E4%B8%8E%E6%99%BA%E8%83%BD%E7%9F%A5%E8%AF%86%E6%9C%8D%E5%8A%A1" target="_blank" rel="noopener" data-page-node-id="UUoFudg2AViPdeH3UqnjzL">智慧图书馆与智慧服务（含“硬智能 + 软智能”观点）</a>
+        <div class="lit-meta" data-page-node-id="dFUrLlzLAFwa5WYT90J4WU">初景利 等（2023/相关文献；具体刊期与题名待在 CNKI 核验）</div>
+        <div class="lit-note" data-page-node-id="ek6EuwkjhArSnhimUbEoET">提出“人的智慧（软智能）+ 物的智能（硬智能）”分工结构，对应智能体“增强人而非替代人”的定位</div></li>
 
     </ul>
         <div class="callout tip" data-page-node-id="RliiLh3qGrSS2ADmE3L7AZ">💡 <b data-page-node-id="n6LtkM2RTBPJ85Dg9nc5oT">软考/职业考点</b>：本章对应软考高项「信息化发展 / 信息系统治理」、CISA「IT 治理(D2)」。信息系统从来不是纯技术，治理与战略是其顶层视角。</div>
@@ -824,12 +843,37 @@
       <p data-page-node-id="ZRZKl9dfDeVDkoq3F7wOEE"><b data-page-node-id="HEPE8tmOTJC4sODLlOoh4d">交付：</b>一份选型评分表，并录屏讲解"为什么信息资源管理者更看重知识库与合规"。</p>
     </div>
 
+    <h3 class="exp-h">🏛️ 名校对标进阶实验（选做 1–2 项，含操作要点与范例）</h3>
+    <div class="expext">
+      <h4>进阶实验 A · 问题界定卡（Problem Framing）<span class="tag">MIT 6.1040 (E1)</span></h4>
+      <p><b>目标：</b>在动手搭建智能体前，学会用结构化框架界定“真问题”而非直接套用现成模板。</p>
+      <p><b>任务：</b>针对“年度热词档案馆”或自选校园痛点，完成 1 页《问题界定卡》，明确目标用户、核心痛点、现有替代方案的不足，以及为何需要智能体而非普通关键词检索。</p>
+      <p><b>交付：</b>1 份 Markdown/PDF 问题界定卡（提交至个人或小组 GitHub 仓库）。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>① 先写“谁在什么场景下卡住了”，不要一上来写“我要做一个 AI 助手”；② 必须对比至少 1 个现有方案（如百度搜索、Excel 表格、人工咨询）的失效原因；③ 用一句话写出“智能体介入后改变的最小闭环”。</p>
+        <p><b>参考范例（节选）：</b><br>
+        • <b>问题主体：</b>新闻传播学大二学生（撰写网络文化课程论文）。<br>
+        • <b>痛点场景：</b>检索“2021 年流行语”时，通用搜索引擎结果碎片化、广告多，且缺乏“语义演变 + 社会背景”结构化对比。<br>
+        • <b>智能体必要性：</b>需先基于专属《流行语编年表》精准召回，再按“词义—出处—情感基调”固定卡片格式输出，普通搜索无法一步到位。</p>
+      </details>
+    </div>
+    <div class="expext">
+      <h4>进阶实验 B · 团队契约与 GitHub 协作初始化<span class="tag">MIT 6.1040 (F0) · Berkeley CS169</span></h4>
+      <p><b>目标：</b>建立贯穿全学期的工程化协作基线，规范版本控制与任务分工。</p>
+      <p><b>任务：</b>2–3 人组队，在 GitHub 创建学期项目仓库，编写 <code>TEAM_CONTRACT.md</code>（角色分工、每周同步时间、PR 合并规则、冲突解决机制），并创建至少 3 个带标签的初始 Issue。</p>
+      <p><b>交付：</b>GitHub 仓库链接 + 团队契约文件 + 成员协作提交记录截图。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>① 参考 <a href="课程实验环境.html">课程实验环境</a> 完成 GitHub 与 VS Code 绑定；② 契约中明确“谁负责需求/文档、谁负责知识库/工作流、谁负责测试与演示”；③ 每周作业统一通过分支或 Issue 留痕，避免期末集中赶工。</p>
+        <p><b>参考范例（<code>TEAM_CONTRACT.md</code> 骨架）：</b><br>
+        1. <b>成员与主责：</b>甲（PM/需求建模）、乙（知识库/工作流）、丙（前端/测试与录屏）。<br>
+        2. <b>同步节奏：</b>每周三晚 20:00 线上 15 分钟站会；周日前完成当周实验提交。<br>
+        3. <b>Git 规范：</b>提交信息格式 <code>feat(ch01): add problem framing card</code>；重大修改需至少 1 名队友 Review。</p>
+      </details>
+    </div>
+
     
-    <h3 class="sec-h" id="labgame">🎮 课堂互动小游戏 · 边玩边学</h3>
-<div style="border:1px solid #1c4a5a;border-radius:12px;overflow:hidden;margin:14px 0;background:#0E2F3A;">
-  <iframe src="game_ch01.html" title="第1章 课堂互动小游戏" loading="lazy" style="width:100%;height:720px;border:0;display:block;"></iframe>
-  <p style="margin:0;padding:10px 14px;font-size:13px;color:#9fc2cf;">提示：游戏需联网访问本站；若未显示，可<a href="game_ch01.html" target="_blank" rel="noopener" style="color:#E0A82E;">点此在新标签页打开</a>。</p>
-</div>
 <h2 class="part p4" data-page-node-id="lyy3CpwR1eiGJwlKYAO8JM">第四部分　本章小结</h2>
       <h3 class="sec-h" id="sum" data-page-node-id="cNCVZYStfHHo8CtXyB7Roz">本章小结</h3>
     <div class="summary" data-page-node-id="A8622EGjwS0rzC8v0rFDFq">
@@ -892,9 +936,6 @@
     <div class="readbox" data-page-node-id="pJWhFgkuykjZt5GKRVm6i2">
       <span class="dot" id="readDot" data-page-node-id="z6fjRN7esqUefAHKDHOHnD"></span>
       <button class="btn ghost" id="markRead" data-ch="1" data-page-node-id="Pux0D5C3tWin8CUedTJmAT">标记为已读</button>
-    </div>
-    <div class="btnrow">
-      <a class="btn" href="game_ch01.html" target="_blank" rel="noopener">🎮 打开第 1 章互动游戏</a>
     </div>
 </main>
 </div>

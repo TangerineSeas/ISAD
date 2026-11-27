@@ -79,6 +79,12 @@
       <div class="card"><b>MVC/MVVM</b> ↔ 低代码 UI—逻辑—数据三层关注点分离</div>
       <div class="card"><b>MDD 模型驱动</b> ↔ 自然语言即模型，AI 直接生成与修改代码</div>
     </div>
+    <p><b>映射解读：</b>过去信息管理专业学生最怕“画好了 UML 图却写不出前端页面”。低代码与 AI 编程并不是要消灭软件工程原则，而是把 <b>MVC 分层</b>和<b>演化型原型法</b>变成了可视化拖拽与自然语言对话——你负责管好“界面—逻辑—数据”的边界，AI 负责把代码补齐。</p>
+    <div class="callout tip">
+      💡 <b>场景案例 · “校园失物招领小程序”的 MVC 与原型法映射：</b><br>
+      • <b>MVC 关注点分离</b>：View（低代码拖拽表单页 + 列表页）、Controller（点击“发布”按钮触发的事件绑定与 AI 图片标签识别工作流）、Model（失物信息数据表）；<br>
+      • <b>演化型原型 + AI 编程</b>：第 1 天先用自然语言让 AI 生成静态页面原型给同学试用；收集到“希望支持按丢失地点筛选”的反馈后，直接对话修改筛选逻辑，原型一步步演化成可上线系统。
+    </div>
     <span class="mod mod-theory">理论可视化 · 信息系统相关图形（4 幅）</span>
 
     <figure class="figure">
@@ -160,13 +166,14 @@
           <div class="callout method" id="classicmap"><span class="m-tag">经典方法论对照 · 实施工程</span><p>原版 ch15 的<b>好程序标准、程序内部文档、调试、持续集成 CI、测试级别、部署/SaaS/系统迁移</b>（ch15）；低代码把"写代码"降为"拖拽+提示词"，但工程纪律不变：版本管理、可测试、可部署仍是硬要求。详见 <a href="../pages/appendix.html#modeling">附录 H</a> 与 ch09。</p></div>
 
 <h3 class="sec-h" id="ideo">课程思政 · 价值引领</h3>
-    <span class="mod mod-kb">前沿动态 · 行业速递（2026-08）</span>
+    <span class="mod mod-kb">前沿动态 · 行业速递（2026-11）</span>
 <div class="callout frontier">
-  <span class="f-tag">动态更新 2026-08</span>
-  <p><b>1</b> 2026 下半年 AI 编程工具横评：Claude Code（委派优先、1M 上下文）、Cursor（协作优先、多模型）、Trae（国内免费、中文友好）、Copilot。</p>
-  <p><b>2</b> “Builder 模式”使 MVP 搭建门槛极低：从点子到上线从数月缩短到数天。</p>
-  <p><b>3</b> 对低代码启示：会写代码不再是核心竞争力，架构设计与需求拆解才是；低代码 + AI 编程把“能用代码解决问题”前置给非专业开发者。</p>
-  <p class="src">来源：CSDN 2026 下半年 AI 编程工具横评、Anthropic 编码趋势报告</p>
+  <span class="f-tag">动态更新 2026-11</span>
+  <p><b>1｜AI 编程智能体进入多代理协同与独立评测时代：</b>2026 年 10 月 Artificial Analysis 独立编程智能体榜单（v2.0）显示，Claude Code 与 Devin 以 62 分并列第一（Meta Muse Code 59 分），OpenAI Codex 以单任务约 $1.50 API 成本拿到 54 分成为高性价比代表；GitHub Copilot 云端编程智能体已能直接将 Issue 转化为 Pull Request，并支持在统一入口按需调度 Claude 与 Codex 子代理。</p>
+  <p><b>2｜“努力度（Effort）调节 + 动态子代理”成为新标配：</b>2026 年下半年主流工具（Claude Code <code>/effort ultracode</code>、Codex 子代理配置、Antigravity CLI v1.4.0）均引入推理深度旋钮与分级自动审批（Auto 模式自动执行安全编辑、高危/不可逆操作仍弹窗确认），单次复杂任务可动态派生数十个子代理并行改代码与跑测试。</p>
+  <p><b>3｜国内无代码与 SDD（规约驱动开发）加速落地：</b>美团 NoCode、百度秒哒（累计生成超 50 万个应用）、Trae 以及网易智企 SDD“AI 软件工厂”推动“自然语言描述 → 多阶段 Agent 生成 → 刚性质量门禁”成为团队标配。</p>
+  <p><b>4｜对低代码与信管专业的启示：</b>写代码语法不再是核心壁垒，“<b>需求拆解清晰度 + 架构边界 + 成本/努力度权衡（$1.5 vs $11.4/任务）+ 人工代码复核</b>”才是决定应用能否上线交付的关键能力。</p>
+  <p class="src">来源：Artificial Analysis Coding Agent Index v2.0（2026-10）、GitHub/Anthropic/OpenAI 2026-10 更新公告、网易智企 SDD 案例</p>
 </div>
 
 <span class="mod mod-ideo">精神坐标 · 人民日报金句</span>
@@ -207,6 +214,7 @@
         <tr><td>形态</td><td>功能相对单一的 AI 伙伴</td><td>产品化的完整 AI 应用</td></tr>
       </tbody>
     </table>
+    <p><b>范式跃迁（从“低代码”到“无代码”）：</b>Hagel 等（2024）与国内产业实践（如美团 NoCode、百度秒哒多智能体无代码平台，已生成超 50 万个应用）表明，大模型正把可视化拖拽的“低代码”进一步推向“自然语言描述即生成全栈应用”的无代码新阶段。</p>
 
     
     <div class="pptgrid" data-cnt="31">
@@ -384,12 +392,13 @@
 
       <h3 class="sec-h" id="s84">8.4　AI 编程模式：描述即开发</h3>
     <p>① <b>自然语言描述</b>：像点菜下单，AI 几分钟生成完整项目（需求五要素：功能/界面/输入/输出/特殊要求）；② <b>生成→调试→部署</b>：描述—预览—对话修正闭环，产物是代码文件可实时编辑；③ <b>技能与集成服务</b>：Skill=可见工具，集成服务=底层实现（模型/数据库/存储/搜索）；④ <b>版本控制</b>：每次对话修改自动生成历史版本，可回滚；⑤ <b>开发环境</b>：Web 云端 IDE（代码编辑器/终端/沙箱）。局限：需求描述依赖强、复杂项目需拆解——建议从低代码入手再过渡。</p>
+    <p><b>方法学重构：</b>周庆山等（2024）指出，AI 编程助手并非仅加速编码，而是从方法学层面重构了需求转化、设计与验证链路；White 等（2023）总结的软件设计/重构/需求获取提示模式库可作为描述规范的复用基线。</p>
 
     
     
 
       <h3 class="sec-h" id="s85">8.5　低代码应用实战要点</h3>
-    <p>数据绑定：组件内容绑定工作流返回变量；"数据"选项卡新建界面变量解决跨页面传参。组件库：基础/输入/展示/AI 对话组件。预览调试闭环：预览→时间线追事件→"试运行"验证工作流。多端发布：单击发布到商店/小程序/Web。常见坑：模型下线改新版；页面直接调工作流拿不到参数（改用界面变量绑定）。</p>
+    <p>数据绑定：组件内容绑定工作流返回变量；"数据"选项卡新建界面变量解决跨页面传参。组件库：基础/输入/展示/AI 对话组件。预览调试闭环：预览→时间线追事件→"试运行"验证工作流。多端发布：单击发布到商店/小程序/Web。常见坑：模型下线改新版；页面直接调工作流拿不到参数（改用界面变量绑定）。<b>适用性边界（Käss 等，2023；李广建等，2025；张兴旺等，2024）</b>：低代码虽大幅降低开发门槛，但在复杂业务逻辑、长期可维护性、跨平台可移植性与防厂商锁定上仍存在边界，核心系统仍须保留规范代码与接口治理。</p>
 
           
 
@@ -428,8 +437,8 @@
     <p>以下文献反映本章主题在智能体时代的最新进展，供学有余力的同学延伸阅读（链接指向原文/预印本）。</p>
           <div class="callout src">🎓 <b>学界观点</b>：李广建等（2025）讨论了低代码平台在信息服务机构应用系统开发中的适用性；张兴旺等（2024）指出无代码 / 低代码的范式价值与固有局限。这说明：低代码是软件工程的“新质生产力”，但发布仍须纳入版本与变更治理。</div>
 <ul class="lit-list">
-      <li><a href="https://www.connectedpapers.com/main/ba71fb0fa68ab7d566dd4bbc6ab27efe7a1ff4a9/Using-ChatGPT-in-Software-Requirements-Engineering%3A-A-Comprehensive-Review/graph" target="_blank" rel="noopener">ChatGPT 提示词模式：提升代码质量、重构与软件设计（ChatGPT Prompt Patterns for Improving Code Quality, Refactoring, Requirements Elicitation, and Software Design）</a>
-        <div class="lit-meta">White et al., 2023, Springer</div>
+      <li><a href="https://arxiv.org/abs/2303.07839" target="_blank" rel="noopener">ChatGPT 提示词模式：提升代码质量、重构与软件设计（ChatGPT Prompt Patterns for Improving Code Quality, Refactoring, Requirements Elicitation, and Software Design）</a>
+        <div class="lit-meta">White et al., 2023, arXiv:2303.07839 / Springer</div>
         <div class="lit-note">提示词模式提升代码质量/重构/设计</div></li>
 
       <li><a href="https://finance.sina.cn/2025-05-30/detail-ineyipfa8707225.d.html" target="_blank" rel="noopener">美团 NoCode：对话式 AI 编程智能体（Meituan NoCode: A Conversational AI Coding Agent）</a>
@@ -512,11 +521,21 @@
       <p><b>交付：</b>讲清「容器 / 列表 / AI 对话组件」如何拼出界面，录屏演示。</p>
     </div>
 
-    <h3 class="sec-h" id="labgame">🎮 课堂互动小游戏 · 边玩边学</h3>
-<div style="border:1px solid #1c4a5a;border-radius:12px;overflow:hidden;margin:14px 0;background:#0E2F3A;">
-  <iframe src="game_ch08.html" title="第8章 课堂互动小游戏" loading="lazy" style="width:100%;height:720px;border:0;display:block;"></iframe>
-  <p style="margin:0;padding:10px 14px;font-size:13px;color:#9fc2cf;">提示：游戏需联网访问本站；若未显示，可<a href="game_ch08.html" target="_blank" rel="noopener" style="color:#E0A82E;">点此在新标签页打开</a>。</p>
-</div>
+    <h3 class="exp-h">🏛️ 名校对标进阶实验（选做，含操作要点与范例）</h3>
+    <div class="expext">
+      <h4>进阶实验 · 启发式可用性评估与 AI 辅助代码审查<span class="tag">Stanford CS147 · CMU 17-313</span></h4>
+      <p><b>目标：</b>兼顾低代码界面的易用性与 AI 生成代码的安全可靠性，防止“能跑但有隐蔽漏洞”。</p>
+      <p><b>任务：</b>① 选用 Nielsen 十大可用性启发式原则中的至少 5 条（系统状态可见性、与真实世界匹配、用户控制与自由、防错、帮助与文档），互评邻组低代码应用；② 在 VS Code 中借助 Copilot 对 AI 生成的前端/脚本代码执行 1 轮边界与安全自查（空输入、超长文本、API Key 硬编码排查）。</p>
+      <p><b>交付：</b>启发式评估问题表（≥3 处改进）+ AI 代码自查修复 Commit 记录。</p>
+      <details class="fold">
+        <summary>🛠 操作要点与参考范例</summary>
+        <p><b>操作要点：</b>① 重点检查“点击提交后是否有加载态（系统状态可见性）”“误删或填错能否撤销（用户控制）”；② 在 VS Code 对话框直接向 AI 提问：<code>请检查这段代码是否存在硬编码密钥、未处理的空值异常或 XSS 风险</code>。</p>
+        <p><b>参考范例（评估与审查记录）：</b><br>
+        • <b>启发式缺陷（防错）：</b>“表单未校验空输入即可提交，导致后端工作流报错。” → 修复：增加前端必填校验与禁用重复提交。<br>
+        • <b>代码审查发现：</b>AI 生成的示例脚本中直接写入了测试用 <code>api_key</code> → 修复：改为环境变量读取，并把 <code>.env</code> 加入 <code>.gitignore</code>。</p>
+      </details>
+    </div>
+
 <h2 class="part p4">第四部分　本章小结</h2>
       <h3 class="sec-h" id="sum">本章小结</h3>
     <div class="summary">
@@ -555,9 +574,6 @@
       <button class="btn ghost" id="markRead" data-ch="8">标记为已读</button>
     </div>
 
-    <div class="btnrow">
-      <a class="btn" href="game_ch08.html" target="_blank" rel="noopener">🎮 打开第 8 章互动游戏</a>
-    </div>
   </main>
 </div>
 
